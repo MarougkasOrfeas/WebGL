@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Computer Graphics semester project: an interactive WebGL scene with a dog built from cubes.">
+    <title data-i18n="index.title">WebGL Project - Versions</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/landing.css">
+</head>
+<body>
+    <!-- Texts: data-i18n keys from assets/i18n/translations.json (the English text is the fallback) -->
+    <div class="container">
+        <div class="top-actions">
+            <!-- EN | ΕΛ language switch -->
+            <div id="langToggle" class="lang-slot"></div>
+        </div>
+
+        <h1 data-i18n="index.project.main.title">Computer Graphics - Semester Project</h1>
+        <p class="subtitle" data-i18n="index.project.subtitle">WebGL / JavaScript · University of West Attica</p>
+
+        <div class="cards">
+            <a class="card" href="html/scene.html?steps=1-4">
+                <span class="tag" data-i18n="index.card.v1.tag">Version 1 · Steps 1–4</span>
+                <h2 data-i18n="index.card.v1.title">Cube &amp; Camera</h2>
+                <p data-i18n="index.card.v1.text">Green cube, perspective camera, view angle / distance inputs and 8 camera positions.</p>
+            </a>
+            <a class="card" href="html/scene.html?steps=5">
+                <span class="tag" data-i18n="index.card.v2.tag">Version 2 · Step 5</span>
+                <h2 data-i18n="index.card.v2.title">Dog from Cubes</h2>
+                <p data-i18n="index.card.v2.text">A dog built only from scaled and translated cubes, with a default front view.</p>
+            </a>
+            <a class="card" href="html/scene.html?steps=6-9">
+                <span class="tag" data-i18n="index.card.v3.tag">Version 3 · Steps 6–9</span>
+                <h2 data-i18n="index.card.v3.title">Textures, Skybox &amp; Mouse</h2>
+                <p data-i18n="index.card.v3.text">Spiral camera animation, textured dog, sky box, floor with name / ΑΜ and mouse camera control.</p>
+            </a>
+            <a class="card" href="html/scene.html?steps=10-11">
+                <span class="tag" data-i18n="index.card.v4.tag">Version 4 · Steps 10–11</span>
+                <h2 data-i18n="index.card.v4.title">Moving Parts &amp; Actions</h2>
+                <p data-i18n="index.card.v4.text">Mouse wheel moves head, front legs and tail; play dead, walking, dachshund and cartoon actions.</p>
+            </a>
+            <a class="card" href="html/texture-generator.html">
+                <span class="tag" data-i18n="index.card.tools.tag">Tool</span>
+                <h2 data-i18n="index.card.tools.title">Texture Generator</h2>
+                <p data-i18n="index.card.tools.text">Draws the fur, head, sky and floor textures and downloads them as PNG files.</p>
+            </a>
+        </div>
+    </div>
+
+    <script type="module" src="js/pages/index-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* Shared base: colors, reset, page background, header bar */
+
+:root {
+    --bg: #0f172a;
+    --bg-deep: #020617;
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --text-soft: #cbd5e1;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --danger: #ef4444;
+    --link: #93c5fd;
+    --radius: 8px;
+    --radius-small: 6px;
+    --font: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Header bar of the scene pages */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    background: var(--bg-deep);
+    border-bottom: 1px solid var(--surface);
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.topbar h1 .sub { color: var(--muted); font-weight: 400; }
+
+.back-link {
+    color: var(--text-soft);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+}
+
+.back-link:hover { background: var(--surface); color: #fff; }
+
+/* Language switch: "EN | ΕΛ", current language highlighted */
+.lang-slot { margin-left: auto; }
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.lang-toggle {
+    display: inline-flex;
+    padding: 3px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.lang-toggle span { padding: 3px 10px; border-radius: 999px; }
+
+.lang-toggle .active { color: #fff; background: var(--accent); }
+
+.lang-toggle:hover { border-color: var(--accent); }

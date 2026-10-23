@@ -1,0 +1,163 @@
+/* Scene pages: canvas + control panel(s) */
+
+body { font-size: 14px; }
+
+.layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px;
+}
+
+canvas {
+    width: min(800px, 85vh);
+    height: min(800px, 85vh);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Step 9: the camera is dragged with the mouse */
+.canvas--draggable { cursor: grab; }
+.canvas--draggable:active { cursor: grabbing; }
+
+/* Control panel */
+.panel {
+    width: 300px;
+    padding: 20px;
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+.panel fieldset {
+    border: 0;
+    margin: 0 0 20px;
+    padding: 0;
+}
+
+.panel legend {
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.sub-legend { margin: 4px 0 8px; font-size: 12px; font-weight: 600; color: var(--text-soft); }
+.radio-grid + .sub-legend { margin-top: 14px; }
+
+.section-gap { margin-top: 20px; }
+
+.hint { margin: 12px 0 0; font-size: 12px; line-height: 1.4; color: var(--muted); }
+
+/* Text inputs */
+.field { display: block; margin-bottom: 12px; }
+
+.field span { display: block; margin-bottom: 4px; color: var(--text-soft); }
+
+.field input {
+    width: 100%;
+    padding: 8px 10px;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+}
+
+.field input:focus { outline: none; border-color: var(--accent); }
+
+/* a wrong value (set by readCameraInputs) */
+.field input[aria-invalid="true"] { border-color: var(--danger); }
+
+/* Radio buttons in two columns */
+.radio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+}
+
+.radio-grid label { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; }
+
+.radio-grid .full { grid-column: 1 / -1; }
+
+input[type="radio"] { accent-color: var(--accent); margin: 0; }
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    border: 0;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--accent-hover); }
+
+.btn-secondary {
+    padding: 9px;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    cursor: pointer;
+}
+
+.btn-secondary:hover { border-color: var(--accent); }
+
+.btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn-block { width: 100%; margin-top: 14px; }
+
+/* Narrow windows: panel below the canvas */
+@media (max-width: 1100px) {
+    .layout { flex-direction: column; align-items: center; }
+    .panel { width: min(800px, 85vh); }
+}
+
+/* Steps 10-11 page: camera panel and dog panel side by side (canvas | camera | dog).
+   The canvas shrinks to leave room for both panels
+   (2 x 300px + gaps + page padding = about 700px). */
+.layout--two-panels canvas {
+    width: min(800px, 85vh, calc(100vw - 700px));
+    height: min(800px, 85vh, calc(100vw - 700px));
+    flex-shrink: 0;
+}
+
+.panels {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.panels .panel fieldset:last-child { margin-bottom: 0; }
+
+/* Small windows: canvas on top, the two panels next to each other below it */
+@media (max-width: 1100px) {
+    .layout--two-panels canvas { width: min(800px, 85vh); height: min(800px, 85vh); }
+    .panels { width: min(800px, 85vh); }
+    .panels .panel { flex: 1; width: auto; }
+}
+
+/* Message shown when scene images are missing (links to the texture generator) */
+.notice {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text);
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid var(--danger);
+    border-radius: var(--radius-small);
+}
+
+.notice a { color: var(--link); }

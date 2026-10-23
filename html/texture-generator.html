@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Draws the textures of the WebGL project and downloads them as PNG files.">
+    <title data-i18n="tools.title">Texture Generator</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/tools.css">
+</head>
+<body>
+<!-- Texts: data-i18n keys from assets/i18n/translations.json (the English text is the fallback) -->
+<div class="container">
+    <div class="top-actions">
+        <a href="../index.html" data-i18n="common.back">&larr; Back to options</a>
+        <!-- EN | ΕΛ language switch -->
+        <div id="langToggle" class="lang-slot"></div>
+    </div>
+    <h1 data-i18n="tools.heading">Texture Generator</h1>
+    <p class="subtitle" data-i18n-html="tools.subtitle">Download the 4 PNG files and save them into <code>assets/textures/</code>.</p>
+
+    <!-- The floor text values are data (name / ΑΜ) -->
+    <div class="inputs">
+        <label><span data-i18n="tools.nameLabel">Floor text, line 1 (name)</span><input id="nameText" value="<Name Surname>"></label>
+        <label><span data-i18n="tools.amLabel">Floor text, line 2 (ΑΜ)</span><input id="amText" value="<Registry Number>"></label>
+    </div>
+
+    <div class="grid">
+        <div class="item">
+            <h2>fur.png</h2>
+            <p data-i18n="tools.fur.text">Spotted dog fur (body, legs, paws, tail, ears)</p>
+            <canvas id="fur" width="512" height="512"></canvas>
+            <button data-canvas="fur" data-file="fur.png" data-i18n="tools.download">Download PNG</button>
+        </div>
+        <div class="item">
+            <h2>dog_head.png</h2>
+            <p data-i18n="tools.head.text">Atlas: eyes (top face) | muzzle (front face) / head fur (other faces)</p>
+            <canvas id="head" width="512" height="512"></canvas>
+            <button data-canvas="head" data-file="dog_head.png" data-i18n="tools.download">Download PNG</button>
+        </div>
+        <div class="item">
+            <h2>sky.png</h2>
+            <p data-i18n="tools.sky.text">Skybox faces</p>
+            <canvas id="sky" width="512" height="512"></canvas>
+            <button data-canvas="sky" data-file="sky.png" data-i18n="tools.download">Download PNG</button>
+        </div>
+        <div class="item">
+            <h2>floor.png</h2>
+            <p data-i18n="tools.floor.text">Floor 25&times;25 with name and ΑΜ</p>
+            <canvas id="floor" width="512" height="512"></canvas>
+            <button data-canvas="floor" data-file="floor.png" data-i18n="tools.download">Download PNG</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="../js/pages/texture-generator.js"></script>
+</body>
+</html>

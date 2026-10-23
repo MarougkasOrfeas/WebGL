@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interactive WebGL scene: a dog built from cubes, with camera controls, textures and animations.">
+    <title>WebGL Project</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/scene.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <!-- Back navigation -->
+        <a class="back-link" href="../index.html" data-i18n="common.back">&larr; Back to options</a>
+        <h1 id="pageTitle"></h1>
+        <!-- EN | ΕΛ language switch -->
+        <div id="langToggle" class="lang-slot"></div>
+    </header>
+
+    <main id="layout" class="layout">
+        <!-- Square canvas: the main display (1:1 aspect ratio). The text inside shows only without canvas support -->
+        <canvas id="glCanvas" width="800" height="800" data-i18n-label="scene.canvas.label">
+            <p data-i18n="scene.canvas.fallback">Your browser does not support WebGL, which is needed to show the 3D scene.</p>
+        </canvas>
+        <!-- Prevent browsers from restoring previous control values (reset to defaults) -->
+        <form id="controls" autocomplete="off"></form>
+    </main>
+
+    <!-- Include WebGL libraries and page module -->
+    <script src="../js/lib/gl-matrix-min.js"></script>
+    <script src="../js/lib/webgl-debug.js"></script>
+    <script type="module" src="../js/pages/scene-page.js"></script>
+</body>
+</html>
